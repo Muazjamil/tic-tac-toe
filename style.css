@@ -1,0 +1,161 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: #333;
+  display: flex;
+  font-family: 'Roboto', sans-serif;
+  justify-content: center;
+  background-color: #f7f7f7;
+  min-height: 100vh;
+  align-items: center;
+  overflow: hidden; /* Prevents scrolling */
+}
+
+.container {
+  background: linear-gradient(145deg, #14bdac, #0da192);
+  margin: 20px;
+  padding: 20px;
+  border-radius: 25px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  max-width: 90vw; /* Limits width to avoid overflow */
+}
+
+.container:hover {
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+}
+
+.title {
+  text-align: center;
+  font-size: 1.8rem;
+  letter-spacing: 2px;
+}
+
+.title span {
+  color: #f2ebd3;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.status-action {
+  display: flex;
+  margin-top: 15px;
+  font-size: 1.2rem;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.status span {
+  color: #f2ebd3;
+}
+
+.reset {
+  cursor: pointer;
+  background-color: #f2ebd3;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  color: #14bdac;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.reset:hover {
+  background-color: #bd022f;
+  color: #f2ebd3;
+}
+
+.game-grid {
+  background: #0da192;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 10px;
+  margin-top: 30px;
+  padding: 5px;
+  border-radius: 5%;
+}
+
+.game-cell {
+  background: #14bdac;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  height: 100px;
+  width: 100px;
+  border-radius: 15px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.game-cell:hover {
+  background-color: #0da192;
+  transform: scale(1.05);
+}
+
+.x,
+.o {
+  cursor: default;
+}
+
+.x::after {
+  content: '×';
+  font-size: 3.5rem;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.o::after {
+  content: '○';
+  color: #f2ebd3;
+  font-size: 4rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.won::after {
+  color: #bd022f;
+  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+@media only screen and (max-width: 1024px) {
+  .game-grid {
+    margin-top: 15px;
+    grid-gap: 8px;
+  }
+
+  .game-cell {
+    height: 80px;
+    width: 80px;
+  }
+
+  .x::after {
+    font-size: 3rem;
+  }
+
+  .o::after {
+    font-size: 3.5rem;
+  }
+}
+
+@media only screen and (max-width: 540px) {
+  .container {
+    margin: 15px;
+    padding: 15px;
+  }
+
+  .game-cell {
+    height: 60px;
+    width: 60px;
+  }
+
+  .x::after {
+    font-size: 2.5rem;
+  }
+
+  .o::after {
+    font-size: 3rem;
+  }
+}
